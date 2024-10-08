@@ -7,6 +7,8 @@ on:
   pull_request:
     branches:
       - main
+  repository_dispatch:
+    types: [contentstack-trigger]
 
 jobs:
   test:
@@ -40,8 +42,8 @@ jobs:
         run: npx playwright test --project=${{ matrix.browser }}
 
         - name: Upload Playwright test results
-  if: failure()
-  uses: actions/upload-artifact@v2
-  with:
-    name: playwright-results
-    path: cucumber-report/
+          if: failure()
+            uses: actions/upload-artifact@v2
+          with:
+          name: playwright-results
+          path: cucumber-report/
