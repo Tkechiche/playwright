@@ -41,9 +41,9 @@ jobs:
       - name: Run tests on ${{ matrix.browser }}
         run: npx playwright test --project=${{ matrix.browser }}
 
-        - name: Upload Playwright test results
-          if: failure()
-            uses: actions/upload-artifact@v2
-          with:
+      - name: Upload Playwright test results
+        if: failure()
+        uses: actions/upload-artifact@v2
+        with:
           name: playwright-results
           path: cucumber-report/
