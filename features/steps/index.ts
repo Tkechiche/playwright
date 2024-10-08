@@ -6,7 +6,7 @@ Given("I am on Conforama home page", async ({ page }) => {
 });
 
 When("I click link {string}", async ({ page }, name: string) => {
-  await page.getByRole("link", { name }).click();
+  await page.getByRole("link",  name ).click();
 });
 
 Then("I see in title {string}", async ({ page }, text: string) => {
