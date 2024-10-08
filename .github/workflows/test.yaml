@@ -5,15 +5,19 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest    
+    strategy:
+      matrix:
+        browser: [chromium]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm ci
+      - run: npm install
       - run: npx playwright install --with-deps
-      - run: npm test
+      - run: npm run test
+      - run: npx playwright test --project=${{ matrix.browser }}
       - uses: actions/upload-artifact@v3
         if: always()
         with:
@@ -21,4 +25,5 @@ jobs:
           path: |
             playwright-report/
             test-results/
+            cucumber-report/
           retention-days: 10
