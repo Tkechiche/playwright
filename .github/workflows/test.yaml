@@ -2,6 +2,8 @@ name: test
 
 on:
   push:
+  repository_dispatch:
+    types: [contentstack-trigger]
 
 jobs:
   test:
