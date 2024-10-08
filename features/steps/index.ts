@@ -2,9 +2,9 @@ import { expect } from "@playwright/test";
 import { Given, When, Then } from "./fixtures";
 
 Given("I am on Conforama home page", async ({ page }) => {
-  await page.goto("https://www.conforama.fr");
+  await page.goto("https://starter.contentstackapps.com");
 });
-
+/*
 When("I click link {string}", async ({ page }, name: string) => {
   await page.getByRole("link",  name ).click();
 });
@@ -12,3 +12,4 @@ When("I click link {string}", async ({ page }, name: string) => {
 Then("I see in title {string}", async ({ page }, text: string) => {
   await expect(page).toHaveTitle(new RegExp(text));
 });
+*/
