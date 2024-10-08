@@ -24,6 +24,10 @@ jobs:
           name: playwright-artifacts
           path: |
             playwright-report/
-            test-results/
-            cucumber-report/
           retention-days: 10
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: playwright-report
+          path: cucumber-report/
